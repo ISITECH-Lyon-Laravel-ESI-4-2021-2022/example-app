@@ -28,16 +28,16 @@ dependencies:
     repository: https://charts.bitnami.com/bitnami
     condition: mysql.enabled
     tags:
-      - laradock-database
+      - laravel-database
   - name: redis
     version: 10.x.x
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
     tags:
-      - laradock-redis
+      - laravel-redis
   - name: minio
     version: 4.x.x
     repository: https://charts.bitnami.com/bitnami
     condition: minio.enabled
     tags:
-      - minio-redis
+      - laravel-minio
