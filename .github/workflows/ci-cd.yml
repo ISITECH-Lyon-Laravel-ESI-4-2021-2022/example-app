@@ -24,18 +24,18 @@ jobs:
   check-env:
     runs-on: [ self-hosted ]
     outputs:
-      my-key: ${{ steps.my-key.outputs.defined }}
+      deploy-allowed: ${{ steps.deploy-allowed.outputs.defined }}
     steps:
-      - id: my-key
+      - id: deploy-allowed
         env:
-          MY_KEY: ${{ secrets.SCALEWAY_TOKEN }}
-        if: "${{ env.MY_KEY != '' }}"
+          DEPLOY: ${{ secrets.DEPLOY }}
+        if: "${{ env.DEPLOY != '' }}"
         run: echo "::set-output name=defined::true"
 
   build:
     runs-on: [self-hosted]
     needs: [ check-env ]
-    if: needs.check-env.outputs.my-key == 'true'
+    if: needs.check-env.outputs.deploy-allowed == 'true'
     permissions:
       contents: read
       packages: write
@@ -121,7 +121,7 @@ jobs:
 
   deploy:
     needs: [ check-env, build ]
-    if: needs.check-env.outputs.my-key == 'true'
+    if: needs.check-env.outputs.deploy-allowed == 'true'
     runs-on: [self-hosted]
     permissions:
       contents: read
