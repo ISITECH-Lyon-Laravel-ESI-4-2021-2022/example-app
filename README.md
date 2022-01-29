@@ -53,6 +53,10 @@ sail up -d
 sail down
 # Set the application key
 sail artisan key:generate
+# Composer dependencies
+sail composer install --ignore-platform-reqs
+# Node dependencies
+sail npm ci
 # First time migrate
 sail artisan migrate
 # Drop all tables and re-run all migrations
