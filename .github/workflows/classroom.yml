@@ -15,6 +15,7 @@ jobs:
           COMPOSER_TOKEN: ${{ secrets.COMPOSER_TOKEN }}
         with:
           php-version: '8.1'
+          extensions: pdo_sqlite
       - uses: actions/checkout@v2
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.ci', '.env');"
