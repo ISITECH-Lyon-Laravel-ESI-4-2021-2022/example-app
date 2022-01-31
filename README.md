@@ -53,6 +53,8 @@ sail up -d
 sail down
 # Set the application key
 sail artisan key:generate
+# Fixer le problème d'écriture
+chmod -R 777 storage bootstrap/cache
 # Composer dependencies
 sail composer install --ignore-platform-reqs
 # Node dependencies
