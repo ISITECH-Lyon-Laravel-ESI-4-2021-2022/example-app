@@ -63,6 +63,8 @@ sail npm ci
 sail artisan migrate
 # Drop all tables and re-run all migrations
 sail artisan migrate:fresh
+# If you need to compile front
+sail npm run dev
 # Check docker container status
 sail ps
 ```
